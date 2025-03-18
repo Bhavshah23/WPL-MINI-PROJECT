@@ -1,0 +1,159 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  background: #262626;
+  padding-top: 20px;
+  position: fixed;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile Image */
+.profile-pic-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+.upload-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(255, 75, 75, 0.9);
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Username */
+.user-name {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff5864;
+}
+
+/* Sidebar Links */
+.sidebar-links {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.sidebar-links a {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  transition: 0.3s;
+  border-radius: 20px;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.sidebar-links a:hover {
+  background: #ff5864;
+  transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 320px; /* Push content to the right, considering sidebar */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top instead of center */
+  width: calc(100% - 320px);
+  height: 100vh;
+  padding-top: 40px; /* Adjust spacing from top */
+}
+
+/* Make the carousel wider */
+.carousel-container {
+  width: 500px;  /* Increase width */
+  height: 300px; /* Increase height */
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding-bottom: 100px; /* Space for user info */
+}
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-container img {
+  width: 100%;
+  height: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Dots Indicator */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.dot span{
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: gray;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.dot.active {
+  background: #ff5864;
+  transform: scale(1.3);
+}
+
+/* Upload Button */
+.upload-button {
+  display: block;
+  background: #ff5864;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 100%;
+}
+.upload-button:hover {
+  background: #e74c56;
+}
+
+/* Hide File Inputs */
+#profile-pic-upload, #image-upload {
+  display: none;
+}
