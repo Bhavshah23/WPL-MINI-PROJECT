@@ -5,7 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = sanitizeInput($_POST['email']);
     $password = $_POST['password'];
     
-    $sql = "SELECT * FROM users WHERE email = ? AND verified = 1";
+    // Modified query to check only email first
+    $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -15,12 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            redirect('dashboard.php');
+            header('Location: index2.html');
+            exit();
         } else {
             $error = "Invalid password";
         }
     } else {
-        $error = "Email not found or account not verified";
+        $error = "Email not found";
     }
 }
 ?>
