@@ -1,0 +1,559 @@
+/* style.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #ff5864 0%, #ff8e53 100%); /* Updated gradient */
+  --secondary-color: #ff5864; /* Updated secondary color */
+  --accent-color: #ff4757; /* Kept accent color */
+  --text-primary: #ffffff; /* Changed to white for better contrast */
+  --text-secondary: #b0b0b0; /* Updated secondary text color */
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #121212; /* Dark background */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--text-primary); /* Use primary text color */
+}
+
+/* Container Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container {
+  background: rgba(38, 38, 38, 0.95); /* Darker background for form */
+  padding: 2.5rem;
+  border-radius: 25px;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+  max-width: 500px;
+  animation: slideIn 0.6s ease-out;
+  transition: var(--transition);
+}
+
+.form-container:hover {
+  box-shadow: 0 15px 30px rgba(255, 71, 87, 0.3); /* Lighter shadow on hover */
+}
+
+.form-title {
+  color: var(--secondary-color);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Input Fields */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid #444; /* Darker border */
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: var(--transition);
+  background: rgba(255, 255, 255, 0.1); /* Light background for inputs */
+  color: var(--text-primary); /* Use primary text color */
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+  outline: none;
+}
+
+input:focus + .input-icon {
+  color: var(--accent-color);
+}
+
+/* Animated Button */
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.2)
+  );
+  transition: var(--transition);
+  z-index: 0;
+}
+.btn-primary:hover::before {
+  left: 100%;
+}
+.btn-primary:hover {
+  color: var(--text-primary);
+}
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.btn-primary i {
+  margin-left: 10px;
+  transition: var(--transition);
+}
+.btn-primary:hover i {
+  transform: translateX(5px);
+}
+.btn-primary:active i {
+  transform: translateX(0);
+}
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}  
+.footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.2);
+}
+.footer a:active {
+  transform: scale(0.98);
+}
+.footer a i {
+  margin-left: 5px;
+  transition: var(--transition);
+}
+.footer a:hover i {
+  transform: translateX(5px);
+}
+.footer a:active i {
+  transform: translateX(0);
+}
+/* Responsive Design */   
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+  .form-title {
+    font-size: 1.8rem;
+  }
+  .btn-primary {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1rem;
+  }
+  .form-title {
+    font-size: 1.5rem;
+  }
+  .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+/* Dark Mode */ 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212; /* Dark background */
+  }
+  .form-container {
+    background: rgba(38, 38, 38, 0.95); /* Darker background for form */
+  }
+  input, select, textarea {
+    background: rgba(255, 255, 255, 0.1); /* Light background for inputs */
+    color: var(--text-primary); /* Use primary text color */
+  }
+}
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f0f0f0; /* Light background */
+  }
+  .form-container {
+    background: rgba(255, 255, 255, 0.95); /* Lighter background for form */
+  }
+  input, select, textarea {
+    background: rgba(0, 0, 0, 0.1); /* Darker background for inputs */
+    color: var(--text-primary); /* Use primary text color */
+  }
+}
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .form-container {
+    animation: none;
+  }
+  .btn-primary {
+    transition: none;
+  }
+  .input-icon {
+    transition: none;
+  }
+}
+/* Print Styles */
+@media print {
+  body {
+    background-color: #fff; /* White background for print */
+  }
+  .form-container {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  input, select, textarea {
+    background: #fff; /* White background for inputs */
+    color: #000; /* Black text for print */
+  }
+  .btn-primary {
+    display: none; /* Hide button in print */
+  }
+}
+/* Print styles for footer */
+@media print {
+  .footer {
+    display: none; /* Hide footer in print */
+  }
+}
+/* Print styles for icons */
+@media print {
+  .input-icon {
+    display: none; /* Hide icons in print */
+  }
+}
+/* Print styles for form title */
+@media print {
+  .form-title {
+    font-size: 1.5rem; /* Adjust font size for print */
+  }
+}
+/* Print styles for form group */
+@media print {
+  .form-group {
+    margin-bottom: 1rem; /* Adjust margin for print */
+  }
+}
+/* Print styles for input fields */
+@media print {
+  input, select, textarea {
+    border: none; /* Remove border for print */
+    box-shadow: none; /* Remove shadow for print */
+  }
+}
+/* Print styles for button */
+@media print {
+  .btn-primary {
+    display: none; /* Hide button in print */
+  }
+}
+/* Print styles for button hover */
+@media print {
+  .btn-primary:hover {
+    background: none; /* Remove hover effect for print */
+  }
+}
+/* Print styles for button active */
+@media print {
+  .btn-primary:active {
+    transform: none; /* Remove active effect for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    outline: none; /* Remove focus effect for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    box-shadow: none; /* Remove focus effect for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    background: none; /* Remove focus effect for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    color: #000; /* Change text color for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-decoration: none; /* Remove text decoration for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-shadow: none; /* Remove text shadow for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-transform: none; /* Remove text transform for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    letter-spacing: normal; /* Remove letter spacing for print */
+  }
+}
+/* Print styles for button focus */ 
+@media print {
+  .btn-primary:focus {
+    word-spacing: normal; /* Remove word spacing for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    line-height: normal; /* Remove line height for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-align: left; /* Align text to left for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-indent: 0; /* Remove text indent for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-transform: none; /* Remove text transform for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-decoration: none; /* Remove text decoration for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-shadow: none; /* Remove text shadow for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-transform: none; /* Remove text transform for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    letter-spacing: normal; /* Remove letter spacing for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    word-spacing: normal; /* Remove word spacing for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    line-height: normal; /* Remove line height for print */
+  }
+}
+/* Print styles for button focus */   
+@media print {
+  .btn-primary:focus {
+    text-align: left; /* Align text to left for print */
+  }
+}
+/* Print styles for button focus */
+@media print {
+  .btn-primary:focus {
+    text-indent: 0; /* Remove text indent for print */
+  }
+}
+/* Print Styles - Consolidated */
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .form-container {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1rem;
+    background: none;
+  }
+  
+  input, select, textarea {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+  
+  .btn-primary, .footer, .input-icon {
+    display: none;
+  }
+  
+  .form-title {
+    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-title::after {
+    display: none;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+  }
+}
+
+/* Additional Styles */
+/* Placeholder Styles */
+::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Error States */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: var(--accent-color);
+}
+
+.error-message {
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.form-group.error .error-message {
+  display: block;
+}
+
+/* Loading State */
+.btn-primary.loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.btn-primary.loading i {
+  animation: spin 1s linear infinite;
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
