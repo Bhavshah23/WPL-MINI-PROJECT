@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages | Jain Dating Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <script type="module" crossorigin src="/assets/messaging-HMcuOJyg.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/messaging-CauEXg1H.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="messaging-container">
+      <!-- Sidebar with user list -->
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h2>Messages</h2>
+          <button class="toggle-sidebar" id="toggle-sidebar">☰</button>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Search matches..." class="search-input">
+        </div>
+        <div class="user-list" id="user-list">
+          <!-- User list will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Main chat area -->
+      <div class="chat-area" id="chat-area">
+        <div class="chat-header" id="chat-header">
+          <button class="back-button" id="back-button">←</button>
+          <div class="selected-user-info">
+            <div class="selected-user-avatar">
+              <!-- Selected user avatar will be set by JavaScript -->
+            </div>
+            <div class="selected-user-details">
+              <h3 id="selected-user-name">Select a conversation</h3>
+              <p id="selected-user-status">No user selected</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <!-- Messages will be populated by JavaScript -->
+          <div class="no-chat-selected">
+            <div class="no-chat-icon">💬</div>
+            <p>Select a conversation to start messaging</p>
+          </div>
+        </div>
+
+        <div class="message-input-container" id="message-input-container">
+          <input type="text" placeholder="Type a message..." id="message-input" class="message-input" disabled>
+          <button id="send-button" class="send-button" disabled>Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
