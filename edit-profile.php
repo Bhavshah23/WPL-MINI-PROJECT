@@ -1,0 +1,1 @@
+// Remove gotra field from both the form display and processing sections

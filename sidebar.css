@@ -1,0 +1,169 @@
+:root {
+  --primary: #ff4d8d;
+  --secondary: #ff85a9;
+  --accent: #ffb6c1;
+  --bg-light: #fff5f7;
+  --text-dark: #2c1810;
+  --text-light: #fff;
+  --gradient-main: linear-gradient(45deg, #ff4d8d, #ff85a9, #ffb6c1);
+  --gradient-hover: linear-gradient(45deg, #ffb6c1, #ff85a9, #ff4d8d);
+  --shadow-soft: 0 10px 30px rgba(255, 77, 141, 0.15);
+  --shadow-strong: 0 15px 40px rgba(255, 77, 141, 0.25);
+}
+
+.sidebar {
+  width: 280px;
+  background: white;
+  box-shadow: var(--shadow-soft);
+  padding: 2rem 1.5rem;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid rgba(255, 77, 141, 0.1);
+  z-index: 100;
+}
+
+.site-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.profile-pic-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 1.5rem;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+  box-shadow: var(--shadow-soft);
+}
+
+.user-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+}
+
+.sidebar-links {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.sidebar-links a {
+  display: block;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  margin: 0.8rem 0;
+  background: rgba(255, 77, 141, 0.05);
+}
+
+.sidebar-links a:hover,
+.sidebar-links a.active {
+  background: var(--gradient-main);
+  color: var(--text-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.logout-btn {
+  margin-top: auto;
+  margin-bottom: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--gradient-main);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.logout-btn:hover {
+  background: var(--gradient-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.content-with-sidebar {
+  margin-left: 280px;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  width: calc(100% - 280px);
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 1rem;
+  }
+
+  .site-name {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile-pic-container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .user-name {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .sidebar-links a {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 0.9rem;
+    flex: 1 0 auto;
+  }
+
+  .logout-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .content-with-sidebar {
+    margin-left: 0;
+    width: 100%;
+  }
+}
